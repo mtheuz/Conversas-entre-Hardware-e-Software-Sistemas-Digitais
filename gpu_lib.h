@@ -113,3 +113,5 @@ void clear_poligonos();
 void teste () ;
 
 void fill_background_blocks (int line);
+
+void clear_sprites();
