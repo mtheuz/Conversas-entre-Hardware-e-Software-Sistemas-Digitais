@@ -136,14 +136,19 @@ int main()
        x += 10;
        x2 -= 10;
        set_sprite(1, x, 50, 6, 1);
-       set_sprite(10, x - 60, 50, 25, 1);
-        set_sprite(11, x - 40, 50, 26, 1);
-        set_sprite(12, x - 20, 50, 27, 1);
+       set_sprite(10, x - 60, 50, 28, 1);
+        set_sprite(11, x - 40, 50, 29, 1);
+        set_sprite(12, x - 20, 50, 30, 1);
         
        set_sprite(4, x2, 100, 8, 1); 
-       set_sprite(5, x2 + 20, 100, 25, 1);
-        set_sprite(6, x2+ 40, 100, 26, 1);
-        set_sprite(7, x2+60, 100, 27, 1);
+      // set_sprite(5, x2 + 20, 100, 25, 1);
+       // set_sprite(6, x2+ 40, 100, 26, 1);
+        //set_sprite(7, x2+60, 100, 27, 1);
+    set_sprite(25, x2+20, 100, 25, 1);
+    set_sprite(26, x2+40, 100, 26, 1);
+    set_sprite(27, x2+60, 100, 27, 1);
+
+
         
        if (x == 620){
 	 x = 0;
