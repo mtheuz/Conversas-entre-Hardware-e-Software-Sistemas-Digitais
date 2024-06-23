@@ -88,8 +88,20 @@ A imagem abaixo ilustra a comunicação entre uma aplicação de usuário (main.
 
 ## Módulo de kernel
 
+## Funções
 
+O código contém a implementação inicial das funções básicas das seguintes bibliotecas:
 
+- set_background_color (Instrução WBR)
+- set_sprite (Instrução WBR)
+- set_poligono (Instrução DP)
+- set_background_block (Instrução WBM)
+- set_sprite_pixel (Instrução WSM)
+
+Essas funções são imprecidivéis para a criação de formas e desenhos na tela.
+
+# Criação de Polígonos
+set_poligono(address, ref_x, ref_y, size, r, g, b, shape)
 
 # Referências
 - 
