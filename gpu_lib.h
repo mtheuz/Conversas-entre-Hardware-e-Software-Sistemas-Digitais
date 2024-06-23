@@ -1,3 +1,43 @@
+/**
+ * \file            gpu_lib.h
+ * \brief           Header com funções da bibliotecla para uso da GPU
+ */
+
+/*
+ * Copyright (c) 2024 Pedro Henrique Araujo Almeida, Demerval, Matheus
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without restriction,
+ * including without limitation the rights to use, copy, modify, merge,
+ * publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+ * AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * This file is part of library_name.
+ *
+ * Author:          Pedro Henrique ARAUJO ALMEIDA <phaalmeida1\gmail.com>
+ *                  Demerval <optional_email\example.com>
+ *                  Matheus <optional_email\example.com>
+ */
+
+#ifndef GPU_LIB_H
+#define GPU_LIB_H
+
+
+#include <stdint.h>
 
 #define LEFT 0
 #define RIGHT 4
@@ -10,108 +50,62 @@
 
 #define DEVICE_PATH "/dev/gpu_driver"
 
+extern int fd;      /*Variavel para guardar acesso ao arquivo do kernel*/
+
 /**
- * @brief Struct usada para sprits moveis.
+ * \brief           Struct usada para sprits moveis.
  */
 typedef struct{
-int pos_X; /*Armazena a coordenada X do sprite. */
-int pos_Y; /*Armazena a coordenada Y do sprite. */
-int direction; /*Armazena um numero inteiro indicando o ́angulo de movimento. */
-int offset; /*Indica o offset de memoria ́utilizado para a escolha do bitmap armazenado no Processa-dor Grafico. */
-int data_register; /*Indica o registrador do Banco de Registradores no qual as informaçoes do ̃sprite serao armazenadas. */
-int step_X; /*Armazena o numero de pixels que o sprite ira se deslocar no eixo X quando o comando de movimentação for utilizado. */
-int step_Y; /*Armazena o numero de pixels que o sprite ira se deslocar no eixo Y quando o comando de movimentação for utilizado. */
-int enable; /*Habilita/Desabilita a impressao do ̃sprite em um determinado momento. */
-int collision; /*Informa se o sprite sofreu alguma colisao. */
+uint16_t pos_x;                                      /*!< Armazena a coordenada X do sprite. */
+uint16_t pos_y;                                      /*!< Armazena a coordenada Y do sprite. */
+uint16_t direction;                                  /*!< Armazena um numero inteiro indicando o ́angulo de movimento. */
+uint16_t offset;                                     /*!< Indica o offset de memoria ́utilizado para a escolha do bitmap armazenado no Processa-dor Grafico. */
+uint16_t data_register;                              /*!< Indica o registrador do Banco de Registradores no qual as informaçoes do ̃sprite serao armazenadas. */
+uint16_t step_x;                                     /*!< Armazena o numero de pixels que o sprite ira se deslocar no eixo X quando o comando de movimentação for utilizado. */
+uint16_t step_y;                                     /*!< Armazena o numero de pixels que o sprite ira se deslocar no eixo Y quando o comando de movimentação for utilizado. */
+uint16_t enable;                                     /*!< Habilita/Desabilita a impressao do ̃sprite em um determinado momento. */
+uint16_t collision;                                  /*!< Informa se o sprite sofreu alguma colisao. */
 } Sprite; 
 
 /**
- * @brief Struct usada para para os sprites fixos, ou seja, nao possuem movimentação durante o jogo.
+ * \brief              Struct usada para para os sprites fixos, ou seja, nao possuem movimentação durante o jogo.
  */
 typedef struct{
-int coord_x, coord_y, offset;
-int data_register, ativo;
+uint16_t coord_x;                                    /*!< Armazena a coordenada X do sprite. */
+uint16_t coord_y;                                    /*!< Armazena a coordenada Y do sprite. */
+uint16_t offset;                                     /*!< Indica o offset de memoria ́utilizado para a escolha do bitmap armazenado no Processa-dor Grafico. */
+uint16_t data_register;                              /*!< Indica o registrador do Banco de Registradores no qual as informaçoes do ̃sprite serao armazenadas. */
+uint16_t enable;                                     /*!< Habilita/Desabilita a impressao do ̃sprite em um determinado momento. */
 } Sprite_Fixed;
 
-/**
- * @brief Usada para setar um sprite na tela
- * 
- * @param reg      
- * @param x                Coordenada x do sprite na tela
- * @param y                Coordenada y do sprite na tela
- * @param offset           Deslocamento na memória para selecionar o bitmap
- * @param sp   Ativação do sprite (0 - desativado, 1 - ativado)
- * @return                 0 quando a operação não foi realizada, e 1 quando foi bem sucedida
-*/
-int set_sprite( int reg, int x, int y, int offset, int sp);
+uint8_t set_sprite( uint8_t reg, uint16_t x, uint16_t y, uint8_t offset, uint8_t sp);
 
-/**
- * @brief Usada para setar um sprite na tela
- * 
- * @param address      
- * @param ref_x                
- * @param ref_y                
- * @param size           
- * @param r   
- * @param g   
- * @param b   
- * @param shape   
- * @return                 0 quando a operação não foi realizada, e 1 quando foi bem sucedida
-*/
-int set_poligono( int address, int ref_x, int ref_y, int size, int r, int g, int b, int shape);
+uint8_t set_poligono( uint16_t address, uint16_t ref_x, uint16_t ref_y, uint8_t size, uint8_t r, uint8_t g, uint8_t b, uint8_t shape);
 
-/**
- * @brief Usada para modelar o background atraves do preenchimento dos blocos de 8x8 pixels
- * 
- * @param column    Valor da coluna do bloco.
- * @param line      Valor da linha do bloco.
- * @param R         Valor para a cor vermelha.
- * @param G         Valor para a cor verde.
- * @param B         Valor para a cor azul.
- * @return          0 quando a operação não foi realizada, e 1 quando foi bem sucedida
-*/
-int set_background_block( int column, int line, int R, int G, int B);
+uint8_t set_background_block( uint8_t column, uint8_t line, uint8_t R, uint8_t G, uint8_t B);
 
-/**
- * @brief Usada para configurar a cor base do background a partir dos valores de Red, Green e Blue.
- * 
- * @param R   Valor para a cor vermelha.
- * @param G   Valor para a cor verde.
- * @param B   Valor para a cor azul.
- * @return    0 quando a operação não foi realizada, e 1 quando foi bem sucedida
-*/
-int set_background_color(int R, int G, int B);
+uint8_t set_background_color(uint8_t R, uint8_t G, uint8_t B);
 
-/**
- * @brief Usada para atualizar as coordenadas x e y de um sprit móvel de acordo ao seu ângulo de movimento e valor de deslocamento.
- * 
- * 
- * @param sp       Ponteiro do sprite que deve ter suas coordenadas atualizadas
- * @param mirror   Define se as coordendas do sprite enviado devem ser espelhadas
-*/
-void increase_coordinate(Sprite *sp, int mirror);
+uint8_t collision(Sprite *sp1, Sprite *sp2);
 
-/**
- * @brief Usada para verificar se ocorreu uma colisão entre dois sprites quaisquer a partir da técnica de sobreposição de retângulos.
- * 
- * @param sp1   Ponteiro para o sprite 1.
- * @param sp2   Ponteiro para o sprite 2.
- * @return      1 quando colisão foi detectada e 0 quando não.
-*/
-int collision(Sprite *sp1, Sprite *sp2);
+uint8_t set_sprite_pixel_color( uint16_t address, uint8_t R, uint8_t G, uint8_t B);
 
-int set_sprite_pixel_color( int address, int R, int G, int B);
+uint8_t open_gpu_device ();
 
-int open_gpu_device ();
+void close_gpu_devide ();
 
-int close__gpu_devide ();
+void increase_coordinate(Sprite *sp, uint8_t mirror);
 
-void clear_screen();
+void clear_background_blocks();
 
 void clear_poligonos();
 
-void teste () ;
-
-void fill_background_blocks (int line);
+void fill_background_blocks (uint8_t line);
 
 void clear_sprites();
+
+void draw_sprites_anfranserai();
+
+void draw_sprites_PMD();
+
+#endif /* GPU_LIB_H */
