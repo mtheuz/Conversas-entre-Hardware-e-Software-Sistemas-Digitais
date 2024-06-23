@@ -88,7 +88,7 @@ A imagem abaixo ilustra a comunicação entre uma aplicação de usuário (main.
 
 ## Módulo de kernel
 
-## Funções
+# Funções
 
 O código contém a implementação inicial das funções básicas das seguintes bibliotecas:
 
@@ -100,11 +100,26 @@ O código contém a implementação inicial das funções básicas das seguintes
 
 Essas funções são imprecidivéis para a criação de formas e desenhos na tela.
 
-# Criação de Polígonos
-set_poligono(address, ref_x, ref_y, size, r, g, b, shape)
-![TB 1 PLOLIGONOS](https://github.com/mtheuz/Problema-2---Sistemas-Digitais/assets/8845392/e6433bca-5a9f-47b6-a898-eee4f0c55b0e)
+## Criação de Polígonos
 
-<img src="[https://github.com/mtheuz/Problema-2---Sistemas-Digitais/assets/8845392/e6433bca-5a9f-47b6-a898-eee4f0c55b0e]" alt="Image" height="20" width="20">
+O objetivo dessa função é criar polígonos na tela em posições específicas. Segue abaixo tabela com os parâmetros e suas repectivas descrições necessárias para a criação dos polígonos, sejam eles triângulos ou retângulos.
+<p align="center">
+<code> set_poligono(address, ref_x, ref_y, size, r, g, b, shape)</code><br><br>
+
+  <img src="https://github.com/mtheuz/Problema-2---Sistemas-Digitais/assets/8845392/e6433bca-5a9f-47b6-a898-eee4f0c55b0e" width="35%" alt="TB 1 PLOLIGONOS">
+</p>
+
+
+## Criação de Sprites
+
+Essa função aloca os Sprites já criados na memória em um determinado local na tela
+
+<p align="center">
+<code>set_sprite(reg, pos_x, pos_y, offset, enable)</code><br><br>
+
+  <img src="https://github.com/mtheuz/Problema-2---Sistemas-Digitais/assets/8845392/7682d671-5a78-4468-b994-3cf8295727b2" width="35%" alt="TB 1 PLOLIGONOS">
+</p>
+
 
 
 # Referências
