@@ -115,7 +115,7 @@ Essas funções são imprecidivéis para a criação de formas e desenhos na tel
 
 ### Criação de Polígonos
 
-O objetivo dessa função é criar polígonos na tela em posições específicas. Segue abaixo tabela com os parâmetros e suas repectivas descrições necessárias para a criação dos polígonos, sejam eles triângulos ou retângulos. Os polígonos usamas cores RGB; Red (vermelho), Green (verde) e Blue (azul).
+O objetivo dessa função é criar polígonos na tela em posições específicas. Segue abaixo tabela com os parâmetros e suas repectivas descrições necessárias para a criação dos polígonos, sejam eles triângulos ou retângulos. Os polígonos usamos cores RGB; Red (vermelho), Green (verde) e Blue (azul).
 <p align="center">
 <code> set_poligono(address, ref_x, ref_y, size, r, g, b, shape)</code><br><br>
 
