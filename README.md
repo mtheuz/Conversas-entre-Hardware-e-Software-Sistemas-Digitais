@@ -102,7 +102,7 @@ Essas funções são imprecidivéis para a criação de formas e desenhos na tel
 
 ## Criação de Polígonos
 
-O objetivo dessa função é criar polígonos na tela em posições específicas. Segue abaixo tabela com os parâmetros e suas repectivas descrições necessárias para a criação dos polígonos, sejam eles triângulos ou retângulos.
+O objetivo dessa função é criar polígonos na tela em posições específicas. Segue abaixo tabela com os parâmetros e suas repectivas descrições necessárias para a criação dos polígonos, sejam eles triângulos ou retângulos. Os polígonos usamas cores RGB; Red (vermelho), Green (verde) e Blue (azul).
 <p align="center">
 <code> set_poligono(address, ref_x, ref_y, size, r, g, b, shape)</code><br><br>
 
@@ -117,10 +117,18 @@ Essa função aloca os Sprites já criados na memória em um determinado local n
 <p align="center">
 <code>set_sprite(reg, pos_x, pos_y, offset, enable)</code><br><br>
 
-  <img src="https://github.com/mtheuz/Problema-2---Sistemas-Digitais/assets/8845392/7682d671-5a78-4468-b994-3cf8295727b2" width="35%" alt="TB 1 PLOLIGONOS">
+  <img src="https://github.com/mtheuz/Problema-2---Sistemas-Digitais/assets/8845392/b10cc97d-31a5-4d5d-893a-ab55197ebcae" width="35%" alt="TB 1 PLOLIGONOS">
 </p>
 
+## Configuração da cor background
+Essa função modifica as cores do background usando as cores RGB.
 
+
+<p align="center">
+<code>set_background_color(r, g, b)</code><br><br>
+
+  <img src="https://github.com/mtheuz/Problema-2---Sistemas-Digitais/assets/8845392/e9456527-6ea5-4844-b008-34efb6e9466c" width="35%" alt="TB 1 PLOLIGONOS">
+</p>
 
 # Referências
 - 
