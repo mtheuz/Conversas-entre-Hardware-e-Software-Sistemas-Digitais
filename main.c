@@ -5,7 +5,7 @@
  */
 
 /*
- * Copyright (c) year FirstName LASTNAME
+ * Copyright (c) 2024 Pedro Henrique Araujo Almeida, Dermeval Neves de Oliveira Filho, Matheus
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
