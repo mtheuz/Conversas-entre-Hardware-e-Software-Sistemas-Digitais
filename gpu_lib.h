@@ -30,7 +30,7 @@
  *
  * Author:          Pedro Henrique ARAUJO ALMEIDA <phaalmeida1\gmail.com>
  *                  Demerval <optional_email\example.com>
- *                  Matheus <optional_email\example.com>
+ *                  Matheus Mota Santos<matheuzwork\gmail.com>
  */
 
 #ifndef GPU_LIB_H
