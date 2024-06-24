@@ -29,7 +29,9 @@
  *
  * This file is part of library_name.
  *
- * Author:          FirstName LASTNAME <optional_email@example.com>
+ * Author:          Pedro Henrique ARAUJO ALMEIDA <phaalmeida1\gmail.com>
+ *                  Dermeval Neves de Oliveira Filho <dermevalneves\gmail.com>
+ *                  Matheus Mota Santos<matheuzwork\gmail.com>
  */
 
 #include <stdio.h>
